@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
 
-def full_overlap?(arr1, arr2)
-  arr1_first, arr1_last = arr1.split('-').map(&:to_i)
-  arr2_first, arr2_last = arr2.split('-').map(&:to_i)
+def to_range(dash_range)
+  first, last = dash_range.split('-').map(&:to_i)
+  (first..last).to_a
+end
 
-  arr1_first <= arr2_first && arr1_last >= arr2_last
+def full_overlap?(arr1, arr2)
+  (to_range(arr1) - to_range(arr2)).empty?
 end
 
 elf_pairs = File.read('input.txt').split("\n")
