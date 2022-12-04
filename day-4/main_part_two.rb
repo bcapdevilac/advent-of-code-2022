@@ -2,7 +2,7 @@
 
 class Main
   def initialize(file:)
-    @elf_pairs = File.read('input.txt').split("\n")
+    @elf_pairs = File.read(file).split("\n")
   end
 
   def run
