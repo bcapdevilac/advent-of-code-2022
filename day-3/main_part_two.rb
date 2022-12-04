@@ -23,8 +23,7 @@ class Main
 
   def priorities
     elf_groups.map do |elf_group|
-      first, second, third = elf_group.map(&:chars)
-      badge = (first & second & third).first
+      badge = elf_group.map(&:chars).inject(:&).first
       PRIORITIES[badge]
     end
   end
