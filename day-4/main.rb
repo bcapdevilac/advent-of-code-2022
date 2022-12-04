@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'pry'
-
 def full_overlap?(arr1, arr2)
   arr1_first, arr1_last = arr1.split('-')
   arr2_first, arr2_last = arr2.split('-')
