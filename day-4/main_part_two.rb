@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'pry'
-
 def to_range(dash_range)
   first, last = dash_range.split('-').map(&:to_i)
   (first..last).to_a
