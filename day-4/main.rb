@@ -9,6 +9,8 @@ class Main
     puts "Elf pairs with full overlap: #{pairs_with_full_overlap.size}"
   end
 
+  private
+
   def to_range(dash_range)
     first, last = dash_range.split('-').map(&:to_i)
     (first..last).to_a
