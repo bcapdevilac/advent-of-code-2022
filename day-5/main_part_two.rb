@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'pry'
-
 class Main
   INSTRUCTION_REGEX = /move\s(\d+)\sfrom\s(\d+)\sto\s(\d+)/.freeze
   STACK_REGEX = /\d+/.freeze
