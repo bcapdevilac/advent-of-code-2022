@@ -24,8 +24,8 @@ class Main
          .split("\n")
          .map(&:chars)
          .transpose
-         .select { |s| stack?(s) }
-         .to_h { |s| stack(s) }
+         .select { |raw_stack| stack?(raw_stack) }
+         .each_with_object({}) { |raw_stack, stack| stack[number(raw_stack)] = content(raw_stack) }
   end
 
   def instructions
@@ -50,10 +50,14 @@ class Main
     raw_stack.any? { |e| STACK_REGEX.match(e) }
   end
 
-  def stack(raw_stack)
-    *contents, number = raw_stack
+  def content(raw_stack)
+    *contents, _number = raw_stack
     contents.delete(' ')
-    [number.to_i, contents]
+    contents
+  end
+
+  def number(raw_stack)
+    raw_stack.last.to_i
   end
 end
 
